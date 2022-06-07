@@ -1,6 +1,6 @@
 {
   "name": "egg-easy-captcha",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "eggPlugin": {
     "name": "easyCaptcha",
@@ -44,6 +44,7 @@
     "app.js",
     "agent.js",
     "config",
+    "lib",
     "app"
   ],
   "ci": {
