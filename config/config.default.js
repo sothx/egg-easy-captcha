@@ -6,7 +6,7 @@
  * @property {String} SOME_KEY - some description
  */
 exports.easyCaptcha = {
-  client: {
+  default: {
     // 验证码宽度
     width: 150,
     // 验证码高度
@@ -28,4 +28,6 @@ exports.easyCaptcha = {
     // 配置默认使用redis的Key
     redisKey: 'eggEasyCaptcha',
   },
+  // 加载到应用程序，默认为true
+  app: true,
 };
