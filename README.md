@@ -117,26 +117,15 @@ see [config/config.default.js](config/config.default.js) for more detail.
     const { statusCode } = constant;
     const { captchaText } = ctx.qeury;
     // 验证图形验证码
-    const validateCaptcha = await this.app.easyCaptcha.validate(ctx.get('captcha-validate-id'),captchaText);
-    // 如果没法正常校验，则返回错误
-    if (!validateCaptcha) {
-      ctx.body = {
-        statusCode: statusCode.COMMON.CAPTCHA_SYSTEM_ERROR
-      }
-      return;
-    }
-    switch (validateCaptcha.status) {
-      case 'SUCCESS': {
+    try {
+      const validateCaptcha = await this.app.easyCaptcha.validate(ctx.get('captcha-validate-id'),captchaText);
         ctx.body = {
           statusCode: statusCode.COMMON.SUCCESS
         }
-        break;
-      }
-      default: {
+    } catch (err) {
         ctx.body = {
           statusCode: statusCode.COMMON.CAPTCHA_FAIL
         }
-      }
     }
   }
 ```
