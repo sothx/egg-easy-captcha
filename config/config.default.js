@@ -27,6 +27,8 @@ exports.easyCaptcha = {
     pexpire: 600000,
     // 配置默认使用redis的Key
     redisKey: 'eggEasyCaptcha',
+    // 验证成功是否自动从redis中移除,默认自动移除
+    autoDelete: true,
   },
   // 加载到应用程序，默认为true
   app: true,
